@@ -25,7 +25,7 @@ export default function App() {
     setLoading(true);
     setSaved(false);
     try {
-      const res = await axios.post("http://localhost:5000/api/ask-ai", { prompt });
+      const res = await axios.post("https://futureblink-assignment-gbde.onrender.com/api/ask-ai"", { prompt });
       setResult(res.data.answer);
     } catch (err) {
       setResult("Error: Could not get response.");
@@ -36,7 +36,7 @@ export default function App() {
   const handleSave = async () => {
     if (!prompt || !result) return;
     try {
-      await axios.post("http://localhost:5000/api/save", { prompt, response: result });
+      await axios.post("https://futureblink-assignment-gbde.onrender.com/api/save"", { prompt, response: result });
       setSaved(true);
     } catch (err) {
       alert("Save failed");
